@@ -46,7 +46,7 @@ async function onClickLogin() {
           </h1>
         </div>
         <p class="mb-0 text-center">
-          Standard System
+          {{ $t('auth.title') }}
         </p>
       </VCardText>
 
@@ -57,18 +57,18 @@ async function onClickLogin() {
               <VTextField
                 v-model="email"
                 autofocus
-                label="Email"
+                :label="$t('auth.email')"
                 type="email"
                 :rules="[requiredValidator, emailValidator]"
-                placeholder="your@email.com"
+                :placeholder="$t('auth.emailPlaceholder')"
               />
             </VCol>
 
             <VCol cols="12">
               <VTextField
                 v-model="password"
-                label="Password"
-                placeholder="············"
+                :label="$t('auth.password')"
+                :placeholder="$t('auth.passwordPlaceholder')"
                 :rules="[requiredValidator]"
                 :type="isPasswordVisible ? 'text' : 'password'"
                 :append-inner-icon="isPasswordVisible ? 'ri-eye-off-line' : 'ri-eye-line'"
@@ -78,7 +78,7 @@ async function onClickLogin() {
               <div class="d-flex align-center flex-wrap justify-space-between my-5 gap-4" />
 
               <VBtn block type="submit" :loading="isProcessing">
-                Login
+                {{ $t('auth.login') }}
               </VBtn>
             </VCol>
           </VRow>

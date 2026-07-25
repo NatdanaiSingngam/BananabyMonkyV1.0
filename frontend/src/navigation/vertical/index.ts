@@ -1,30 +1,30 @@
 export default [
   {
-    heading: 'Main',
+    heading: 'หลัก',
   },
   {
-    title: 'Dashboard',
+    title: 'แดชบอร์ด',
     to: { name: 'root' },
     icon: { icon: 'ri-home-line' },
   },
   {
-    heading: 'Finance',
+    heading: 'การเงิน',
   },
   {
-    title: 'Transactions',
+    title: 'รายการ',
     to: { name: 'transaction-page' },
     icon: { icon: 'ri-exchange-dollar-line' },
   },
   {
-    title: 'Categories',
+    title: 'หมวดหมู่',
     to: { name: 'category-page' },
     icon: { icon: 'ri-price-tag-3-line' },
   },
   {
-    heading: 'Admin',
+    heading: 'จัดการระบบ',
   },
   {
-    title: 'Users',
+    title: 'ผู้ใช้',
     to: { name: 'user-page' },
     icon: { icon: 'ri-user-3-line' },
   },

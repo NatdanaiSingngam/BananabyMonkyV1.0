@@ -44,7 +44,7 @@ export const defaultSEO: SEOConfig = {
   siteUrl: import.meta.env.VITE_APP_URL || 'https://yourdomain.com',
   siteName: 'Banana by Monky',
   twitterHandle: import.meta.env.VITE_TWITTER_HANDLE || '@bananabymonky',
-  locale: 'en_US',
+  locale: 'th_TH',
   themeColor: '#3b82f6',
   ogImage: '/og-image.png',
   twitterImage: '/twitter-image.png',

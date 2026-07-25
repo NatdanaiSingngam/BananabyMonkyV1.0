@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useSEO } from '@/composables/useSEO'
 import { useTransactionStore } from '@/stores/use-transaction-store'
 import { useUserStore } from '@/stores/use-user-store'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 useSEO({
-  title: 'Dashboard',
-  description: 'ภาพรวมรายรับรายจ่ายของคุณ',
+  title: t('dashboard.title'),
+  description: t('dashboard.description'),
   keywords: ['dashboard', 'banana by monky', 'รายรับรายจ่าย'],
 })
 
@@ -32,7 +34,7 @@ onMounted(async () => {
 
 <template>
   <div>
-    <h1 class="text-h5 font-weight-bold mb-6">Dashboard — Banana by Monky</h1>
+    <h1 class="text-h5 font-weight-bold mb-6">{{ t('app.title') }} — {{ t('dashboard.title') }}</h1>
 
     <VRow class="mb-6">
       <VCol cols="12" sm="6" lg="4">
@@ -42,7 +44,7 @@ onMounted(async () => {
               <VIcon icon="ri-arrow-up-line" size="24" />
             </VAvatar>
             <div>
-              <div class="text-caption text-medium-emphasis">รายรับทั้งหมด</div>
+              <div class="text-caption text-medium-emphasis">{{ t('dashboard.totalIncome') }}</div>
               <div class="text-h5 font-weight-bold text-success">{{ formatAmount(totalIncome) }}</div>
             </div>
           </VCardText>
@@ -55,7 +57,7 @@ onMounted(async () => {
               <VIcon icon="ri-arrow-down-line" size="24" />
             </VAvatar>
             <div>
-              <div class="text-caption text-medium-emphasis">รายจ่ายทั้งหมด</div>
+              <div class="text-caption text-medium-emphasis">{{ t('dashboard.totalExpense') }}</div>
               <div class="text-h5 font-weight-bold text-error">{{ formatAmount(totalExpense) }}</div>
             </div>
           </VCardText>
@@ -68,7 +70,7 @@ onMounted(async () => {
               <VIcon icon="ri-wallet-3-line" size="24" />
             </VAvatar>
             <div>
-              <div class="text-caption text-medium-emphasis">คงเหลือ</div>
+              <div class="text-caption text-medium-emphasis">{{ t('dashboard.balance') }}</div>
               <div class="text-h5 font-weight-bold">{{ formatAmount(balance) }}</div>
             </div>
           </VCardText>
@@ -78,59 +80,59 @@ onMounted(async () => {
 
     <VRow>
       <VCol cols="12" md="8">
-        <VCard title="รายการล่าสุด">
+        <VCard :title="t('dashboard.recentTransactions')">
           <VList lines="two">
             <VListItem
-              v-for="t in transactions.slice(0, 10)"
-              :key="t.id"
+              v-for="tItem in transactions.slice(0, 10)"
+              :key="tItem.id"
             >
               <template #prepend>
                 <VAvatar
-                  :color="t.type === 'income' ? 'success' : 'error'"
+                  :color="tItem.type === 'income' ? 'success' : 'error'"
                   variant="tonal"
                   size="36"
                 >
                   <VIcon
-                    :icon="t.type === 'income' ? 'ri-arrow-up-line' : 'ri-arrow-down-line'"
+                    :icon="tItem.type === 'income' ? 'ri-arrow-up-line' : 'ri-arrow-down-line'"
                     size="18"
                   />
                 </VAvatar>
               </template>
               <VListItemTitle class="d-flex justify-space-between">
-                <span>{{ t.description || 'No description' }}</span>
+                <span>{{ tItem.description || t('common.noData') }}</span>
                 <span
-                  :class="t.type === 'income' ? 'text-success' : 'text-error'"
+                  :class="tItem.type === 'income' ? 'text-success' : 'text-error'"
                   class="font-weight-bold"
                 >
-                  {{ t.type === 'income' ? '+' : '-' }}{{ formatAmount(t.amount) }}
+                  {{ tItem.type === 'income' ? '+' : '-' }}{{ formatAmount(tItem.amount) }}
                 </span>
               </VListItemTitle>
               <VListItemSubtitle>
-                {{ formatDate(t.date) }}
+                {{ formatDate(tItem.date) }}
               </VListItemSubtitle>
             </VListItem>
             <VListItem v-if="transactions.length === 0" class="text-center text-medium-emphasis py-4">
-              No transactions yet. Start recording your income and expenses!
+              {{ t('dashboard.noTransactions') }}
             </VListItem>
           </VList>
           <VCardActions v-if="transactions.length > 0">
             <RouterLink to="/transaction-page">
-              <VBtn variant="text" size="small">View all transactions</VBtn>
+              <VBtn variant="text" size="small">{{ t('dashboard.viewAll') }}</VBtn>
             </RouterLink>
           </VCardActions>
         </VCard>
       </VCol>
       <VCol cols="12" md="4">
-        <VCard title="Quick Stats">
+        <VCard :title="t('dashboard.quickStats')">
           <VCardText>
             <div class="d-flex flex-column gap-4">
               <div>
-                <div class="text-caption text-medium-emphasis">จำนวนรายการ</div>
-                <div class="text-h6">{{ transactions.length }} รายการ</div>
+                <div class="text-caption text-medium-emphasis">{{ t('dashboard.transactionCount') }}</div>
+                <div class="text-h6">{{ transactions.length }} {{ t('common.status') }}</div>
               </div>
               <div>
-                <div class="text-caption text-medium-emphasis">จำนวนผู้ใช้</div>
-                <div class="text-h6">{{ userStore.users.length }} คน</div>
+                <div class="text-caption text-medium-emphasis">{{ t('dashboard.userCount') }}</div>
+                <div class="text-h6">{{ userStore.users.length }} {{ t('common.status') }}</div>
               </div>
             </div>
           </VCardText>
