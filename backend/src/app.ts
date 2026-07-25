@@ -30,15 +30,19 @@ export function createApp(containerFactory: (env: Partial<Bindings>) => Containe
     openAPIRouteHandler(app, {
       documentation: {
         info: {
-          title: 'Starter API',
+          title: 'Banana by Monky API',
           version: '1.0.0',
-          description: 'Hono backend running on Cloudflare Workers (D1 + KV) and AWS Lambda',
+          description: 'Banana by Monky — personal finance API running on Cloudflare Workers (D1 + KV) and AWS Lambda',
         },
-        tags: [{ name: 'Users', description: 'User management' }],
+        tags: [
+          { name: 'Users', description: 'User management' },
+          { name: 'Categories', description: 'Income/expense categories' },
+          { name: 'Transactions', description: 'Income/expense transactions' },
+        ],
       },
     })
   )
-  app.get('/docs', Scalar({ url: '/openapi.json', pageTitle: 'Starter API Docs' }))
+  app.get('/docs', Scalar({ url: '/openapi.json', pageTitle: 'Banana by Monky API Docs' }))
 
   app.notFound((c) => c.json({ error: { code: 'NOT_FOUND', message: 'Route not found' } }, 404))
 

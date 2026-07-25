@@ -27,8 +27,8 @@ export interface PageSEO {
 
 // Default SEO Configuration
 export const defaultSEO: SEOConfig = {
-  title: 'Fakduai - Web App Starter Template',
-  description: 'A modern, feature-rich Vue 3 + Vuetify admin template with TypeScript support. Build powerful web applications faster with pre-built components and layouts.',
+  title: 'Banana by Monky - รายรับรายจ่ายส่วนตัว',
+  description: 'ระบบบันทึกรายรับรายจ่ายส่วนตัว Banana by Monky ติดตามการเงินง่าย ๆ',
   keywords: [
     'vue3',
     'vuetify',
@@ -36,14 +36,14 @@ export const defaultSEO: SEOConfig = {
     'dashboard',
     'web app',
     'typescript',
-    'fakduai',
-    'starter template',
-    'vue admin',
+    'banana by monky',
+    'รายรับรายจ่าย',
+    'การเงินส่วนตัว',
   ],
-  author: 'Fakduai',
+  author: 'Banana by Monky',
   siteUrl: import.meta.env.VITE_APP_URL || 'https://yourdomain.com',
-  siteName: 'Fakduai',
-  twitterHandle: import.meta.env.VITE_TWITTER_HANDLE || '@yourtwitter',
+  siteName: 'Banana by Monky',
+  twitterHandle: import.meta.env.VITE_TWITTER_HANDLE || '@bananabymonky',
   locale: 'en_US',
   themeColor: '#3b82f6',
   ogImage: '/og-image.png',

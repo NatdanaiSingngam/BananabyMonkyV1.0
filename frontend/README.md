@@ -1,4 +1,4 @@
-# Fakduai - Premium Web App Starter Template
+# Banana by Monky - รายรับรายจ่ายส่วนตัว
 
 <details>
   <summary>Click to View Logs</summary>
@@ -11,7 +11,7 @@
 
 ## Table of Contents
 
-- [Fakduai Standard Web](#fakduai-standard-web)
+- [Banana by Monky](#banana-by-monky)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
     - [Project setup](#project-setup)
@@ -26,13 +26,13 @@
 
 ## Overview
 
-A web frontend for Fakduai Standard Web project
+A web frontend for Banana by Monky personal finance app
 
 - **Recommended Editor: VS code**
 - Main Framework: Vue3 (Typescript)
 - UI Libs: Vuetify
 - Build Tools: Vite
-- Theme : Fakduai (Modern & Premium)
+- Theme : Banana by Monky
 - Test Tools: Vitest
 
 **Recommended VS Code Extensions**

@@ -5,11 +5,15 @@ import { handle } from 'hono/aws-lambda'
 import { createApp } from './app'
 import { createContainer } from './di/container'
 import { MemoryCacheRepository } from './infrastructure/memory/memory-cache-repository'
+import { MemoryCategoryRepository } from './infrastructure/memory/memory-category-repository'
+import { MemoryTransactionRepository } from './infrastructure/memory/memory-transaction-repository'
 import { MemoryUserRepository } from './infrastructure/memory/memory-user-repository'
 
 const container = createContainer({
   userRepository: new MemoryUserRepository(),
   cacheRepository: new MemoryCacheRepository(),
+  categoryRepository: new MemoryCategoryRepository(),
+  transactionRepository: new MemoryTransactionRepository(),
 })
 
 const app = createApp(() => container)
