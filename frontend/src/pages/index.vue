@@ -114,7 +114,7 @@ onMounted(async () => {
             </VListItem>
           </VList>
           <VCardActions v-if="transactions.length > 0">
-            <RouterLink :to="{ name: 'transaction-page' }">
+            <RouterLink to="/transaction-page">
               <VBtn variant="text" size="small">View all transactions</VBtn>
             </RouterLink>
           </VCardActions>

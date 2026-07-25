@@ -15,7 +15,7 @@ import {
 
 export const { themeConfig, layoutConfig } = defineThemeConfig({
   app: {
-    title: 'Banana by Monky',
+    title: 'banana by monky',
 
     // ❗ if you have SVG logo and want it to adapt according to theme color, you have to apply color as `color: rgb(var(--v-global-theme-primary))`
     logo: h('div', {
